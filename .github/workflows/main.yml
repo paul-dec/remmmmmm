@@ -1,0 +1,16 @@
+name: Remmmmmm Readme
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+jobs:
+  update-readme:
+    name: Update Readme with Metrics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Eastkap/waka-readme-stats@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          IGNORED_REPOS: ${{ secrets.IGNORED_REPOS }}
+          SHOW_LINES_OF_CODE: "True"
